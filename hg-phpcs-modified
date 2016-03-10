@@ -1,0 +1,21 @@
+#!/bin/bash
+x=$(pwd);
+
+if [ ! -d "$x/.hg" ] ; then
+    while [ "$x" != "/" ] ;
+        do x=$(dirname "$x");
+        test -e "$x/.hg" && break;
+    done
+fi
+
+if [ "$x" = "/" ] ; then
+    echo "No mercurial repository found." 1>&2;
+    exit
+fi
+
+
+cd "$x" || exit
+for i in $(hg status | egrep "^M|^A" | grep "\.php" | sed -e"s/^M //;s/^A //;")
+do 
+    phpcs "$i"
+done

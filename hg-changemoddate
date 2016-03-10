@@ -1,0 +1,10 @@
+#!/bin/bash
+for i in "$@" 
+do
+    date=$(hg log -l 1 "$i" --template '{date|isodate}\n')
+    if [ "$date" != "" ] ; then
+        touch -m --date="$date" "$i"
+    else
+        echo "$i not in hg" > /dev/stderr
+    fi
+done

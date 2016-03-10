@@ -1,0 +1,25 @@
+#!/bin/bash
+
+x=$(pwd);
+if [ ! -d "$x/.hg" ] ; then
+    while [ "$x" != "/" ] ;
+        do x=$(dirname "$x");
+        test -e "$x/.hg" && break;
+    done
+fi
+
+if [ "$x" = "/" ] ; then
+    echo "No mercurial repository found."
+    exit
+fi
+
+echo -e "\033[32;01mLocal repository found at $x\033[m\n"
+cd "$x" || exit;
+y=$(hg s | grep "^M")
+
+if [ "$y" != "" ] ; then
+    echo -e "Modified files are:\033[33;01m"
+    ls -lrt "$y" 2>/dev/null
+    echo -e '\033[m'
+fi
+# vi:set syntax=sh

@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `hg status | egrep "^M|^A" | grep "\.php" | sed -e"s/^M //;s/^A //;"`
+do 
+    php -l $i
+done
