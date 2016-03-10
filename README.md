@@ -1,26 +1,26 @@
 # hg-tools
 Command line tools for doing that little extra with Mercurial.
 
-## hg-changemoddate file1...
+##### hg-changemoddate file1...
 
-* Change modification date of files to when they were last committed.
+Change modification date of files to when they were last committed.
 
-## hg-changeset-url [REV]
+##### hg-changeset-url [REV]
 
-* Display the URL for either the current changeset, or a specified one.
+Display the URL for either the current changeset, or a specified one.
 
-## hg-modified
+##### hg-modified
 
-* List modified files, ls -lrt style. (Long form, reverse chronological).
+List modified files, ls -lrt style. (Long form, reverse chronological).
 
-## hg-phpcs-modified
+##### hg-phpcs-modified
 
-* Run phpcs (the PHP CodeSniffer) on modified files.
+Run phpcs (the PHP CodeSniffer) on modified files.
 
-## hg-phplint-modified
+##### hg-phplint-modified
 
-* Lint modified php files.
+Lint modified php files.
 
-## hg-url
+##### hg-url
 
-* Display the URL of the current repository.
+Display the URL of the current repository.
