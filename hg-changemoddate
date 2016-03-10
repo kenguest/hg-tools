@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$#" -eq 0 ]; then
+    printf "usage:\n $ %s file1 [...]\n\n" "$(basename "$0")" > /dev/stderr
+    echo " Change mod date of files to when they were last committed." > /dev/stderr
+fi
 for i in "$@" 
 do
     date=$(hg log -l 1 "$i" --template '{date|isodate}\n')
