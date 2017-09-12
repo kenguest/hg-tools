@@ -15,10 +15,10 @@ fi
 
 echo -e "\033[32;01mLocal repository found at $x\033[m\n"
 cd "$x" || exit;
-y=$(hg s | grep "^M"|sed -e "s/^M //")
+y=$(hg status | grep "^M"|sed -e "s/^M //")
 if [ "$y" != "" ] ; then
     echo -e "Modified files are:\033[33;01m"
-    ls -lrt `hg s | grep "^M"|sed -e "s/^M //"`
+    ls -lrt `hg status | grep "^M"|sed -e "s/^M //"`
     echo -e '\033[m'
 fi
 # vi:set syntax=sh
